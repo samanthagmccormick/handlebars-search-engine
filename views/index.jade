@@ -1,0 +1,13 @@
+var dummyData = require('./models/dummy-data.js');
+
+extends layout
+
+block content
+	h1 Hello Boulder!
+
+
+	form(method="post" action="/search" name="searchForm")
+		input(type="text" name="searchItem")
+		button(type="submit" class="btn btn-primary") Submit
+
+	div(id='results')
