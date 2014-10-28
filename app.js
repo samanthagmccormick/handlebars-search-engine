@@ -12,7 +12,10 @@ app.set('views', __dirname + '/views');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: false}));
 
+// When the client GETS '/', launch the indexController index: route
 app.get('/', indexController.index);
+
+// When the client submits '/search', lacunh teh indexController search: route
 app.post('/search', indexController.search);
 
 var server = app.listen(5359, function() {

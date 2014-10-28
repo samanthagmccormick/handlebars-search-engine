@@ -1,13 +1,15 @@
-var dummyData = require('./models/dummy-data.js');
-
 extends layout
 
 block content
 	h1 Hello Boulder!
 
+	form(name="searchForm")
+		input(type="text" name="searchItem" class="searchItem")
+		input(type="submit" class="btn btn-primary" id="searchButton")
 
-	form(method="post" action="/search" name="searchForm")
-		input(type="text" name="searchItem")
-		button(type="submit" class="btn btn-primary") Submit
+	div#results
+		h1 Results
 
-	div(id='results')
+		//- Handlebars Template for Results DIV
+		script#results-tpl(type='text/x-handlebars-template').
+			<p>{{lang}}: {{desc}}</p>
