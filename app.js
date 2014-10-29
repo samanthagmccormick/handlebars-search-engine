@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', indexController.index);
 
 // When the client submits '/search', lacunh teh indexController search: route
-app.post('/search', indexController.search);
+app.get('/search', indexController.search);
 
 var server = app.listen(5359, function() {
 	console.log('Express server listening on port ' + server.address().port);
