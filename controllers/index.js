@@ -2,15 +2,16 @@
 var dummyData = require('../models/dummy-data.js');
 
 var indexController = {
-	// This route directs what happens for the client
 	index: function(req, res) {
 		res.render('index');
 	},
 	search: function(req, res) {
-		// request is what is sent from the client
-		var searchQuery = req.body.searchItem;
+
+		// Get the search query from the client (we named it searchItem: )
+		var searchQuery = req.query.searchItem;
 		console.log('searchQuery: ', searchQuery);
 
+		// look thru data for matches
 		var description;
 		for (var language in dummyData.programming) {
 			if(searchQuery === language) {
@@ -19,7 +20,7 @@ var indexController = {
 		}
 
 		// send the matched language/description pair back to the client
-		res.send({lang: language, desc: description});
+		res.send({lang: searchQuery, desc: description});
 	}
 };
 
